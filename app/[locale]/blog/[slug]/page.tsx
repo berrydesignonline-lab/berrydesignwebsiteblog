@@ -6,18 +6,12 @@ import { ArrowLeft, ArrowRight, Calendar, Tag } from "lucide-react"
 import { PortableText } from "@portabletext/react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/sanity/queries"
+import { getBlogPostBySlug } from "@/lib/sanity/queries"
 import { urlFor } from "@/lib/sanity/client"
 
-type Props = { params: Promise<{ locale: string; slug: string }> }
+export const dynamic = "force-dynamic"
 
-export async function generateStaticParams() {
-  const posts = await getAllBlogPosts()
-  return posts.flatMap((post: any) => [
-    { locale: "en", slug: post.slug.current },
-    { locale: "ar", slug: post.slug.current },
-  ])
-}
+type Props = { params: Promise<{ locale: string; slug: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params
