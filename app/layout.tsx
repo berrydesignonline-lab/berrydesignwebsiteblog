@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Berry Design Qatar",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   )
