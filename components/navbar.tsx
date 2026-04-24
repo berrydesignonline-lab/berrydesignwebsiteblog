@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { useScrollPosition } from "@/hooks/use-scroll-position"
 import { Menu, X, MessageCircle } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -19,6 +20,9 @@ export function Navbar({ locale = "en" }: NavbarProps) {
 
   const otherLocale = locale === "en" ? "ar" : "en"
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "97431490766"
+  const pathname = usePathname()
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`
+  const homePrefix = isHome ? "" : `/${locale}`
 
   useEffect(() => {
     setIsMobileOpen(false)
@@ -36,12 +40,12 @@ export function Navbar({ locale = "en" }: NavbarProps) {
   }, [isMobileOpen])
 
   const navLinks = [
-    { href: "#about", label: t("about") },
-    { href: "#services", label: t("services") },
-    { href: "#pricing", label: t("pricing") },
-    { href: "#portfolio", label: t("work") },
+    { href: `${homePrefix}#about`, label: t("about") },
+    { href: `${homePrefix}#services`, label: t("services") },
+    { href: `${homePrefix}#pricing`, label: t("pricing") },
+    { href: `${homePrefix}#portfolio`, label: t("work") },
     { href: `/${locale}/blog`, label: t("blog") },
-    { href: "#contact", label: t("contact") },
+    { href: `${homePrefix}#contact`, label: t("contact") },
   ]
 
   return (
