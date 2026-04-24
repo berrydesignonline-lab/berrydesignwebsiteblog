@@ -40,6 +40,7 @@ export function Navbar({ locale = "en" }: NavbarProps) {
     { href: "#services", label: t("services") },
     { href: "#pricing", label: t("pricing") },
     { href: "#portfolio", label: t("work") },
+    { href: `/${locale}/blog`, label: t("blog") },
     { href: "#contact", label: t("contact") },
   ]
 

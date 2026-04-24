@@ -15,6 +15,7 @@ export function Footer() {
     { href: "#about", label: navT("about") },
     { href: "#services", label: navT("services") },
     { href: "#portfolio", label: navT("work") },
+    { href: `/${locale}/blog`, label: navT("blog") },
     { href: "#contact", label: navT("contact") },
   ]
 
