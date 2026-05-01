@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
+    themeColor: "#E8613C",
     alternates: {
       canonical: `https://berrydesign.online/${locale}`,
       languages: {
