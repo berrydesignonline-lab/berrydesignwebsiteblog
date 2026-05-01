@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations } from "next-intl/server"
 import { notFound } from "next/navigation"
 import { routing } from "@/i18n/routing"
+import { poppins, cairo } from "@/app/layout"
 
 type Props = {
   children: React.ReactNode
@@ -61,7 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} dir={dir}>
-      <body className="font-sans antialiased">
+      <body className={`font-sans antialiased ${poppins.variable} ${cairo.variable}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
