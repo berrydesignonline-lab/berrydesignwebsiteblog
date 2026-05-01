@@ -87,7 +87,7 @@ export function Navbar({ locale = "en" }: NavbarProps) {
             <div className="flex items-center gap-3">
               <Link
                 href={`/${otherLocale}`}
-                className="text-sm font-medium hover:text-primary transition-colors px-2 py-1"
+                className="text-sm font-medium hover:text-primary transition-colors px-3 py-2 min-h-[44px] flex items-center"
               >
                 {t("language")}
               </Link>
@@ -104,7 +104,7 @@ export function Navbar({ locale = "en" }: NavbarProps) {
 
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="md:hidden p-1"
+                className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2"
                 aria-label="Toggle menu"
               >
                 {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
